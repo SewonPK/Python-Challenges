@@ -2,3 +2,6 @@ Char = input("type a letter: ")
 
 while len(Char) > 1:
     Char = input("Type only 1 letter: ")
+    
+if len(Char) == 1:
+    print("Data is valid")
