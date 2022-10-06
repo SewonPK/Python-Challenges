@@ -1,0 +1,4 @@
+Char = input("type a letter: ")
+
+while len(Char) > 1:
+    Char = input("Type only 1 letter: ")
