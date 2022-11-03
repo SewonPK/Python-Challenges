@@ -1,0 +1,16 @@
+MyArray = [6,3,9,4,5,11,2]
+MaxIndex = len(MyArray)
+n = MaxIndex - 1
+Temp = 0
+
+print(MyArray) #Prints the originl array of numbers
+
+for i in range (0,MaxIndex-1): 
+    for j in range (0,n): 
+        if MyArray[j] > MyArray[j+1]:
+            Temp = MyArray[j]
+            MyArray[j] = MyArray[j+1]
+            MyArray[j+1] = Temp
+    n = n - 1
+
+print(MyArray) #Prints the sorted array
