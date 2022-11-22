@@ -1,0 +1,15 @@
+inputFile = "if.txt" #Can replace with any word file
+WordLength = []
+WordCount = 0
+TotalLength = 0
+AvgWordLength = 0
+
+with open(inputFile, 'r') as filedata:
+    for line in filedata:
+        for word in line.split():
+            WordLength.append(len(word))
+filedata.close()
+WordCount = len(WordLength)
+TotalLength = sum(WordLength)
+AvgWordLength = TotalLength/WordCount
+print("This document has a average word length of",int(AvgWordLength))
