@@ -1,0 +1,18 @@
+Numbers = [0]*5
+CurrentDifference = 0
+
+for i in range (5):
+    Numbers[i] = int(input(" Enter a number: "))
+SortedNumbers = sorted(Numbers)
+print(Numbers)
+print(SortedNumbers)
+
+MinimumDifference = SortedNumbers[1] - SortedNumbers[0]
+for i in range (4):
+    CurrentDifference = SortedNumbers[i+1] - SortedNumbers[i]
+    print(CurrentDifference)
+    if CurrentDifference < MinimumDifference:
+        MinimumDifference = CurrentDifference
+
+print("The list is", Numbers)
+print("The Minimum difference is", MinimumDifference)
