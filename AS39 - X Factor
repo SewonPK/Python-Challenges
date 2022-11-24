@@ -1,0 +1,43 @@
+import random
+import time
+SongCount = int(input("How many songs would you like to play?: "))
+while SongCount < 3:
+    print("Must be more than 2 songs")
+    SongCount = int(input("Enter song count: "))
+Artists = ["Shishishishi", "Charlie Puth", "Shawn Mendes", "Ed Sheeran", "The Score", "AJR", "AliA", "Ado", "Twenty One Pilots", "KANKAN"]
+Songs = [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]*10
+Songs[0] = ["Orange Point", "Melancholy", "Hyena", "Volcano", "Crisis", "Random", "Moonlight", "Controversy", "Eien Hanadashi", "While Eating"]
+Songs[1] = ["Light Switch", "Attention", "The Way I Am", "We Don't Talk Anymore", "Left and Right"," Loser", "Patient", "How Long", "BOY", "Oops"]
+Songs[2] = ["Mercy", "Higher", "305", "Show You", "Dream", "Stitches", "24 Hours", "Wonder", "Lights On", "Roses"]
+Songs[3] = ["Bad Habits", "Perfect", "Shape Of You", "Collide", "Tides", "Shivers", "2step", "Sandman", "Call on me", "Photograph"]
+Songs[4] = ["Unstoppable", "Bulletproof", "Bad Days", "On And On", "In My Blood", "Miracle", "The Champion", "Dreamin", "SDA", "Carry On"]
+Songs[5] = ["World's Smallest Violin", "Bang!", "AfterHours", "Pretender", "I Won't", "Karma", "Burn the House Down", "The Good Part", "Why Less Sad", "Come Hang Out"]
+Songs[6] = ["Hide and Seek", "Impulse", "Limit", "Silhouette", "Discord", "Cinderella Story", "Utopia", "Letter", "Simple", "Voice"]
+Songs[7] = ["Missing", "New Genesis", "Ussewa", "Backlight", "Fireworks", "Rebellion", "Domestic De Violence", "Stick Candy", "Odo", "Motherland"]
+Songs[8] = ["Stressed Out", "Chlorine", "Ride", "Jumpsuit", "Morph", "House of Gold", "Doubt", "My Blood", "Migraine", "Fall Away"]
+Songs[9] = ["Viper", "Suima", "ALL FOOL", "TOMB", "Curtain Call", "Battou", "Bloody Mary", "TRIPPER", "Revive", "ROARS"]
+
+SongsPlayed = 0
+ArtistShuffle = [""]*SongCount
+Check = [""]*2
+SongShuffle = [""]*SongCount
+CurrentArtist = ""
+CurrentSong = ""
+ArtistID = 0
+
+for i in range (0, SongCount):
+    ArtistShuffle[i] = random.choice(Artists)
+while ArtistShuffle[1] == ArtistShuffle[0]:
+    ArtistShuffle[1] = random.choice(Artists)
+for i in range (2, SongCount):
+    Check[0] = ArtistShuffle[i-2]
+    Check[1] = ArtistShuffle[i-1]
+    while ArtistShuffle[i] in Check:
+        ArtistShuffle[i] = random.choice(Artists)
+
+for i in range (0, SongCount):
+    CurrentArtist = ArtistShuffle[i]
+    ArtistID = Artists.index(CurrentArtist)
+    CurrentSong = random.choice(Songs[ArtistID])
+    print("Now Playing:",  CurrentSong,  "By", CurrentArtist)
+    time.sleep(1)
