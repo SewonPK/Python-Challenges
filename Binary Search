@@ -1,0 +1,22 @@
+import random
+
+Number = random.randint(1,111)
+Search = []
+
+for i in range (0,111):
+    Search.append(i+1)
+
+
+def BinarySearch(Search, low, high, Number, Counter):
+    Counter = Counter + 1
+    mid = (high + low) // 2
+    if Search[mid] == Number:
+        print("Your number is ", Search[mid])
+        return Counter
+    elif Search[mid] > Number:
+        return BinarySearch(Search, low, mid - 1, Number, Counter)
+    else:
+        return BinarySearch(Search, mid + 1, high, Number, Counter)
+
+Counter = BinarySearch(Search, 0, len(Search) - 1, Number, 0)
+print("it was found in", Counter, "tries")
