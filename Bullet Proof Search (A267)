@@ -1,0 +1,37 @@
+#Test data
+Number = 33
+Search = [64, 21, 34, 55, 12, 53, 102, 59, 13, 43, 33, 78]
+
+def BubbleSort(Search):
+    n = len(Search)
+    swapped = False
+    for i in range(n - 1):
+        for j in range(0, n-i-1):
+            if Search[j] > Search[j + 1]:
+                swapped = True
+                Search[j], Search[j + 1] = Search[j + 1], Search[j]
+        if not swapped:
+            return
+
+def BinarySearch(Search, low, high):
+    if high >= low:
+        mid = (high + low) // 2
+        if Search[mid] == Number:
+            return Search[mid]
+        elif Search[mid] > Number:
+            return BinarySearch(Search, low, mid - 1)
+        else:
+            return BinarySearch(Search, mid + 1, high)
+    else:
+        return -1
+
+Result = BinarySearch(Search, 0, len(Search)-1)
+if Result == -1:
+    BubbleSort(Search)
+    Result = (BinarySearch(Search, 0, len(Search)-1))
+    if Result == -1:
+        print("Not found in the array")
+    else:
+        print("Found", Result, "in the array")
+else:
+    print("Found", Result, "in the array")
