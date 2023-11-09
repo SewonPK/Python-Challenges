@@ -1,0 +1,19 @@
+n = 5
+m = 7
+
+Board = []
+Check = True
+
+for i in range(n):
+    arr = []
+    for j in range(m):
+        if Check:
+            arr.append(".")
+            Check = False
+        else:
+            arr.append("*")
+            Check = True
+    Board.append(arr)
+
+for i in range(n):
+    print(Board[i])
