@@ -1,0 +1,31 @@
+import random
+
+class DadJokes:
+
+    def __init__(self, Prompt, Answer):
+        self.Prompt = Prompt
+        self.Answer = Answer
+
+arrayJokes = []
+
+def Constructor():
+    try:
+        file = open("DadJokes.txt", "r")
+        data = (file.readline()).strip()
+        while data != "":
+            Prompt = data
+            Answer = (file.readline()).strip()
+            data = (file.readline()).strip()
+            arrayJokes.append(DadJokes(Prompt, Answer))
+        file.close()
+    except IOError:
+        print("File not found")
+
+def PrintRandomJoke():
+    i = random.randint(0,9)
+    print(arrayJokes[i].Prompt)
+    input("take a guess: ")
+    print(arrayJokes[i].Answer)
+
+Constructor()
+PrintRandomJoke()
