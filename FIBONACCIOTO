@@ -1,0 +1,7 @@
+def Fibonacci(rep, x = 0, y = 1):
+    if rep != 0:
+        print(x)
+        rep -= 1
+        Fibonacci(rep, y, y+x)
+
+Fibonacci(100)
